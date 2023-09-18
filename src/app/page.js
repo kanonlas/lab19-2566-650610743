@@ -66,6 +66,7 @@ export default function Home() {
     } catch (error) {
       if (error.response.data) {
         alert(error.response.data.message);
+        setLoadingLogin(false);
       }
     }
   };
@@ -113,7 +114,7 @@ export default function Home() {
               {!loadingLogin ? (
                 <Button onClick={login}>Login</Button>
               ) : (
-                <Button disabled={!login}>Login...</Button>
+                <Button disabled={loadingLogin}>Login...</Button>
               )}
             </Group>
           )}
